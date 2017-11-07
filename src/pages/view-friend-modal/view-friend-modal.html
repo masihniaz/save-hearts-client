@@ -1,0 +1,45 @@
+<ion-content padding>
+    <ion-item class="close" no-lines (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </ion-item>
+    <ion-card>
+    <ion-card-content>
+      <div class="image-modal transparent">
+        <img *ngIf="friend.dp" [src]="friend.dp" class="image">
+        <img *ngIf="!friend.dp" [src]="defaultAvatar">
+      </div>
+      <ion-list no-lines>
+
+        <ion-list-header>
+          INFORMATION
+        </ion-list-header>
+
+        <ion-item class="item-transparent">
+          Name: {{friend.name + ' ' + friend.lastname}}
+        </ion-item>
+
+        <ion-item class="item-transparent">
+          Username: {{friend.username}}
+        </ion-item>
+
+        <ion-item class="item-transparent">
+          Gender: {{friend.gender}}
+        </ion-item>
+
+        <ion-item class="item-transparent">
+          Birthdate: {{birthdate}}
+        </ion-item>
+
+        <!-- <ion-item *ngIf="friend.bloodType" class="item-transparent">
+          Blood Type: {{friend.bloodType}}
+        </ion-item>
+        
+        <p *ngIf="friend.medicalNotes" class="paragraph">
+            {{friend.medicalNotes}}
+        </p> -->
+
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

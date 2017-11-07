@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Phone Number</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding no-bounce id="bgColor">
+  <p>Check that your number is correct before presing save.</p>
+  <form [formGroup]="phoneForm">
+
+    <ion-input type="number" formControlName="phone" placeholder="e.g: 1139183032" [(ngModel)]="user.phone"></ion-input>
+    <button ion-button block [disabled]="!phoneForm.dirty || !phoneForm.valid" (click)="saveData()">SAVE</button>
+
+  </form>
+</ion-content>

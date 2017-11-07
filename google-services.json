@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "109717634566",
+    "firebase_url": "https://save-hearts.firebaseio.com",
+    "project_id": "save-hearts",
+    "storage_bucket": "save-hearts.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:109717634566:android:8056c7314bee8a18",
+        "android_client_info": {
+          "package_name": "save.hearts.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "109717634566-4hhiu1bqlkhutfrfp9f0t4n6gbp9a89n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDahnKdm9BTpqLsTKMKeRNU5_56sP-KIME"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

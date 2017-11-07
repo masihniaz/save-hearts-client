@@ -1,0 +1,44 @@
+page-view-friend-modal {
+    .img-info {
+        padding-left: 20px;
+        background: #fff;
+    }
+    .content-ios {
+        background: rgba(44, 39, 45, 0.84) !important;
+    }
+ 
+    .content-md {
+        background: rgba(44, 39, 45, 0.84) !important;
+    }
+    .close {
+    background: transparent;
+    color: color($colors, light);
+    font-size: 3rem;
+    }
+    ion-list-header {
+        text-align: center;
+        border-radius: 8px;
+        margin-top: 5px;
+    }
+    .item-transparent {
+        // background: #000000;
+        // background: rgba(36, 34, 34, 0.50);
+        // color: #ffffff;
+        color: #000000;
+        border-radius: 8px;
+        margin-bottom: 7px;
+    }
+    ion-card-content {
+        background:#EEEEEE;
+    }
+    .image {
+        border-radius: 8px;;
+    }
+    .paragraph {
+        box-sizing: border-box;
+        background: #ffffff;
+        padding: 16px;
+        font-size: 1.2em;
+        border-radius: 8px;
+    }
+}

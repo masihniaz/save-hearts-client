@@ -1,0 +1,19 @@
+<ion-header>
+    
+      <ion-navbar>
+        <ion-title>Emergency Contact Number</ion-title>
+      </ion-navbar>
+    
+    </ion-header>
+    
+    
+    <ion-content padding no-bounce id="bgColor">
+      <p>Provide an emergency contact number that responders could reach in case of emregency.</p>
+      <form [formGroup]="emergencyContactForm">
+    
+        <ion-input type="number" formControlName="emergencyContact" placeholder="e.g: 1139183032" [(ngModel)]="user.emergencyContact"></ion-input>
+        <button ion-button block [disabled]="!emergencyContactForm.dirty || !emergencyContactForm.valid" (click)="saveData()">SAVE</button>
+    
+      </form>
+    </ion-content>
+    

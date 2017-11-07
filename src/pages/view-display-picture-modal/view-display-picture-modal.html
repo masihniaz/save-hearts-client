@@ -1,0 +1,11 @@
+<ion-content padding>
+  <ion-item class="close" no-lines (click)="close()">
+      <ion-icon name="close"></ion-icon>
+    </ion-item>
+  <ion-card>
+    <div class="image-modal transparent">
+        <img *ngIf="dp" [src]="dp" class="image">
+        <img *ngIf="!dp" [src]="defaultAvatar">
+    </div>
+  </ion-card>
+</ion-content>

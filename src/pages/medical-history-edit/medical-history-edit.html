@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Medical Information</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding no-bounce id="bgColor">
+    <p>Providing medical information can be very helpful and vital in emergency cases.</p>
+    
+    <form [formGroup]="medicalInfoForm">
+      
+      <ion-select formControlName="bloodType" placeholder="Choose your blood type" cancelText="Cancel" okText="OK" [(ngModel)]="user.bloodType">
+        <ion-option *ngFor="let blood of bloodTypes">{{blood}}</ion-option>
+      </ion-select>
+      
+      <p>Provide key information such as alergies or sicknesses that you have.</p>
+      <ion-textarea formControlName="medicalNotes" [(ngModel)]="user.medicalNotes"></ion-textarea>
+
+      <button ion-button block [disabled]="!medicalInfoForm.valid" (click)="saveData()">SAVE</button>
+
+    </form>
+
+    
+    
+    
+</ion-content>

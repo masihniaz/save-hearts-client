@@ -1,0 +1,81 @@
+page-login {
+    .bgImg {
+        background: #ccc url('../../assets/img/bg.jpg') no-repeat 50% 50% /cover;
+    }
+    //vertical and horizantal alignment of elements.
+    .scroll-content {
+		align-content: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+	}
+    // adds opacity to the background of ion-card.
+	ion-card.card {
+		box-shadow: none;
+		background: rgba(0, 0, 0, 0.5);
+		border-radius: 10px;
+	}
+    // Code below is for fully transparent background.
+    .item-full-transparent {
+        background-color: transparent !important;
+    }
+    // Semi transparent for input background.
+    .item-transparent {
+        background: rgba(255, 255, 255, 0.5);
+    }
+    #item-radius-top {
+        border-radius: 10px 10px 0px 0px;
+    }
+    #item-radius-bottom {
+        border-radius: 0px 0px 10px 10px;
+    }
+    #button-radius {
+        border-radius: 10px;
+        color: #000000;
+    }
+    // Semi transparent buttons
+    .semi-transparent-button-signup {
+        display: outline;
+        box-sizing: border-box;
+        margin: 0 auto;
+        padding: 8px;
+        /* background: #fff;  fallback color for old browsers */background: rgba(255, 0, 0, 0.6);
+        border-style: none;
+        border-radius: 8px;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        letter-spacing: 1px;
+        transition: all 0.3s ease-out;
+    }
+    .semi-transparent-button-login {
+        display: outline;
+        box-sizing: border-box;
+        margin: 0 auto;
+        padding: 8px;
+        background: #fff; /* fallback color for old browsers */background: rgba(56, 126, 245, 0.7);
+        border-style: none;
+        border-radius: 8px;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        letter-spacing: 1px;
+        transition: all 0.3s ease-out;
+    }
+
+    .center {
+        text-align: center;
+    }
+    .img-center {
+        display: flex;
+        flex-direction: column;    /* align flex items vertically */
+        justify-content: center;   /* center items vertically, in this case */
+        align-items: center;       /* center single-line items horizontally, in this case */
+        align-content: center;     /* center multi-line items horizontally, in this case */
+    }
+    .help-text{
+        color: rgb(56, 126, 245);
+    }
+
+}

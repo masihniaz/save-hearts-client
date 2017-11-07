@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Name</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding no-bounce id="bgColor">
+  
+  <p>
+    This is how your name will appear in Save-Hearts.
+  </p>
+
+  <form [formGroup]="nameForm">
+
+    <ion-input type="text" formControlName="name" placeholder="Name" [(ngModel)]="user.name" text-capitalize></ion-input>
+    <ion-input type="text" formControlName="lastname" placeholder="Last Name" [(ngModel)]="user.lastname" text-capitalize></ion-input>
+    <button ion-button block [disabled]="!nameForm.valid || (!nameForm.get('name').dirty || !nameForm.get('name').touched || !nameForm.get('lastname').dirty) || !nameForm.get('lastname').touched" (click)="saveData()">SAVE</button>
+  
+  </form>
+
+  <!-- <form #nameForm="ngForm">
+      
+          <ion-input type="text" name="name" placeholder="Name" [(ngModel)]="user.name" text-capitalize required></ion-input>
+          <ion-input type="text" name="lastname" placeholder="Last Name" [(ngModel)]="user.lastname" text-capitalize required></ion-input>
+          <button ion-button block [disabled]="!nameForm.dirty || !nameForm.valid" (click)="saveData()">SAVE</button>
+        
+  </form> -->
+
+</ion-content>

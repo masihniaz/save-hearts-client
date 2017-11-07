@@ -1,0 +1,19 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Gender</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding no-bounce id="bgColor">
+  <form [formGroup]="genderForm">
+
+    <ion-select formControlName="gender" [(ngModel)]="gender" cancelText="Cancel" okText="OK">
+      <ion-option *ngFor="let g of genders">{{g}}</ion-option>
+    </ion-select>
+    <button ion-button block [disabled]="!genderForm.dirty" (click)="saveData()">SAVE</button>
+  
+  </form>
+</ion-content>

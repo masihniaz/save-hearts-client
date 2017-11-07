@@ -1,0 +1,40 @@
+page-birthdate-edit {
+    #bgColor {
+        background-color: #EEEEEE;
+    }
+    .button {
+        background-color: #4CAF50;
+    }
+    .button:hover {
+        background-color: #45a049;
+    }
+    ion-datetime {
+        -webkit-transition: all 0.30s ease-in-out;
+        -moz-transition: all 0.30s ease-in-out;
+        -ms-transition: all 0.30s ease-in-out;
+        -o-transition: all 0.30s ease-in-out;
+        
+        background: #fff;
+        padding: 10px;
+        border: 1px solid #DDDDDD;
+        margin-bottom: 13px;
+        outline: none;
+        border-radius: 5px;
+    }
+    ion-datetime:hover {
+        -webkit-transition: all 0.30s ease-in-out;
+        -moz-transition: all 0.30s ease-in-out;
+        -ms-transition: all 0.30s ease-in-out;
+        -o-transition: all 0.30s ease-in-out;
+
+        outline: none;
+        box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+        padding: 10px;
+        border: 1px solid rgba(81, 203, 238,1);
+        margin-bottom: 13px;
+    }
+    p {
+        text-align: center;
+    }
+
+}

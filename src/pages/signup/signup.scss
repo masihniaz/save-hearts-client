@@ -1,0 +1,20 @@
+page-signup {
+    #customPadding {
+        padding-left: 12px;
+    }
+    // .label-ios-primary, .item-input .label-ios-primary, .item-select .label-ios-primary, .item-datetime .label-ios-primary {
+    //     color: #ffffff;
+    // }
+    .item-transparent {
+        background-color: transparent !important; // background: rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        margin: 2px;
+        color: #000000
+    }
+    .item {
+        border-color: #000000;
+    }
+    #bgColor {
+        background-color: rgb(255,201,0);
+    }
+}

@@ -1,0 +1,28 @@
+
+<ion-content padding no-bounce id="bgColor">
+  <ion-list>
+      <ion-list-header>
+          Friends
+      </ion-list-header>
+      <ion-fab bottom left>
+        <button ion-fab mini (click)="addFriend()"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+
+      <ion-item-sliding *ngFor="let friend of friends">
+        <ion-item tappable (click)="viewFriend(friend)">
+          <ion-avatar item-start>
+            <img *ngIf="!friend.dp" [src]="defaultAvatar">
+            <img *ngIf="friend.dp" [src]="friend.dp">
+          </ion-avatar>
+          {{friend.name + ' ' + friend.lastname}}
+          <button ion-button clear icon-only item-end> <ion-icon name="arrow-forward"></ion-icon></button>
+        </ion-item>
+        <ion-item-options side="left">
+          <button ion-button icon-only color="danger" (click)="removeFriend(friend)">
+              <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+  </ion-list>
+</ion-content>
+

@@ -1,0 +1,22 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Birthdate</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding no-bounce id="bgColor">
+
+  <p>
+    Choose carefully - you can only change your birthday a limited number of times.
+  </p>
+
+  <form [formGroup]="birthdateForm">
+
+    <ion-datetime formControlName="birthdate" displayFormat="YYYY/MM/DD" pickerFormat="YYYY/MMM/DD" min="1900" max="2007" [(ngModel)]="user.birthdate"></ion-datetime>
+    <button ion-button block [disabled]="!birthdateForm.dirty" (click)="saveData()">SAVE</button>
+ 
+  </form>
+
+</ion-content>

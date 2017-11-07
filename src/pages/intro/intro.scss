@@ -1,0 +1,18 @@
+page-intro{
+    .scroll-content {
+		align-content: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+	}
+    .swiper-pagination-bullet-active {
+        background: #000000;
+    }
+    .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+        margin: 40px 10px;
+    }
+    .label-ios-primary {
+        color: #ffffff;
+    }
+}

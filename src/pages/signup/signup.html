@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>
+      Back
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content id="bgColor" padding *ngIf="signUpForm">
+  <form text-center [formGroup]="signUpForm" novalidate>
+<!-- Username field -->
+    <ion-list>
+      <ion-item class="item-transparent">
+        <ion-label padding-left floating color="primary">Username</ion-label>
+        <ion-input id="customPadding" type="text" formControlName="username"></ion-input>
+      </ion-item>
+      <div text-justify padding-left class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.username">
+          <div *ngIf="signUpForm.get('username').hasError(validation.type) && (signUpForm.get('username').dirty || signUpForm.get('username').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+<!-- Name field -->
+      <ion-item class="item-transparent">
+        <ion-label padding-left floating color="primary">Name</ion-label>
+        <ion-input text-capitalize id="customPadding" type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <div text-justify padding-left class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.name">
+          <div *ngIf="signUpForm.get('name').hasError(validation.type) && (signUpForm.get('name').dirty || signUpForm.get('name').touched)">
+            {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+<!-- Last Name field -->
+      <ion-item class="item-transparent">
+        <ion-label padding-left floating color="primary">Last Name</ion-label>
+        <ion-input text-capitalize id="customPadding" type="text" formControlName="lastname"></ion-input>
+      </ion-item>
+      <div text-justify padding-left class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.lastname">
+          <div *ngIf="signUpForm.get('lastname').hasError(validation.type) && (signUpForm.get('lastname').dirty || signUpForm.get('lastname').touched)">
+            {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+<!-- Email field -->
+      <ion-item class="item-transparent">
+        <ion-label padding-left floating color="primary">Email</ion-label>
+        <ion-input id="customPadding" type="text" formControlName="email"></ion-input>
+      </ion-item>
+      <div text-justify padding-left class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.email">
+        <div *ngIf="signUpForm.get('email').hasError(validation.type) && (signUpForm.get('email').dirty || signUpForm.get('email').touched)">
+          {{validation.message}}
+        </div>
+        </ng-container>
+      </div>
+<!-- Birthdate field -->
+      <ion-item class="item-transparent">
+        <ion-label padding-left floating color="primary">Birthdate</ion-label>
+        <ion-datetime id="customPadding" displayFormat="YYYY/MM/DD" min="1900" max="2007" formControlName="birthdate" [(ngModel)]="defaultDate"></ion-datetime>
+      </ion-item>
+<!-- Gender field -->
+      <ion-item class="item-transparent">
+        <ion-label padding-left floating color="primary">Gender</ion-label>
+        <ion-select padding-left formControlName="gender" cancelText="Cancel" okText="OK">
+          <ion-option id="customPadding" *ngFor="let gender of genders" [value]="gender" >{{ gender }}</ion-option>
+        </ion-select>
+      </ion-item>
+<!-- Phone Number field -->
+      <ion-item class="item-transparent">
+        <ion-label padding-left floating color="primary">Phone</ion-label>
+        <ion-input id="customPadding" type="text" formControlName="phone"></ion-input>
+      </ion-item>
+      <div text-justify padding-left class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.phone">
+          <div *ngIf="signUpForm.get('phone').hasError(validation.type) && (signUpForm.get('phone').dirty || signUpForm.get('phone').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+<!-- Password field -->
+      <ion-item class="item-transparent">
+        <ion-label padding-left floating color="primary">Password</ion-label>
+        <ion-input id="customPadding" type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <div text-justify padding-left class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.password">
+          <div *ngIf="signUpForm.get('password').hasError(validation.type) && (signUpForm.get('password').dirty || signUpForm.get('password').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+<!-- Confirm Password field -->
+      <ion-item class="item-transparent">
+        <ion-label padding-left floating color="primary">Confirm Password</ion-label>
+        <ion-input id="customPadding" type="password" formControlName="confirm_password"></ion-input>
+      </ion-item>
+      <div text-justify padding-left class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.confirm_password">
+          <div *ngIf="signUpForm.get('confirm_password').hasError(validation.type) && (signUpForm.get('confirm_password').dirty || signUpForm.get('confirm_password').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+<!-- Register Button --> 
+      <ion-item class="item-transparent" no-lines text-center>
+        <button ion-button block padding color="danger" class="button block" [disabled]="!signUpForm.valid" (click)="signUp()">REGISTER!</button>
+      </ion-item>
+    </ion-list>
+  </form>
+  
+  <!--{{signUpForm.value | json}}
+   -->
+</ion-content>

@@ -1,0 +1,14 @@
+page-view-display-picture-modal {
+    .content-ios {
+        background: rgba(44, 39, 45, 0.84) !important;
+    }
+ 
+    .content-md {
+        background: rgba(44, 39, 45, 0.84) !important;
+    }
+    .close {
+        background: transparent;
+        color: color($colors, light);
+        font-size: 3rem;
+    }
+}

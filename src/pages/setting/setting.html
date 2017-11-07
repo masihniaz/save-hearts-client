@@ -1,0 +1,90 @@
+
+<ion-content padding no-bounce id="bgColor">
+
+    <ion-list no-lines>
+
+        <ion-list-header>
+            MY ACCOUNT
+        </ion-list-header>
+
+        <!-- <ion-item> -->
+            <ion-fab>
+                <button ion-fab mini (click)="presentActionSheet()">
+                    <ion-icon name="camera"></ion-icon>
+                </button>
+            </ion-fab>
+            <ion-thumbnail>
+                <img *ngIf="!user.dp" [src]="defaultAvatar" id="dp">
+                <img *ngIf="user.dp" [src]="user.dp" id="dp">
+            </ion-thumbnail>
+            
+            
+        <!-- </ion-item> -->
+        
+        <ion-item>
+            Username: {{user.username}}
+        </ion-item>
+
+        <div class="spacer" style="height: 10px;"></div>
+        <!-- <ion-item-divider></ion-item-divider> -->
+
+        <button ion-item (click)="editName()">
+            Name : {{user.name}} {{user.lastname}}
+            <ion-icon name="arrow-forward" color="primary" item-end></ion-icon>
+        </button>
+        <div class="spacer" style="height: 10px;"></div>
+        <!-- <ion-item-divider></ion-item-divider> -->
+
+        <!-- <ion-item detail-push>
+        <ion-datetime displayFormat="YYYY/MM/DD" [(ngModel)]="user.birthdate" (click)="editBirthdate()"></ion-datetime>
+        </ion-item> -->
+        <button ion-item (click)="editBirthdate()">
+            Birthdate : {{birthdate}}
+            <ion-icon name="arrow-forward" color="primary" item-end></ion-icon>
+        </button>
+        <div class="spacer" style="height: 10px;"></div>
+        <!-- <ion-item-divider></ion-item-divider> -->
+
+        <button ion-item (click)="editGender()">
+            Gender : {{user.gender}}
+            <ion-icon name="arrow-forward" color="primary" item-end></ion-icon>
+        </button>
+
+    </ion-list>
+
+    <ion-list>
+
+        <!-- <ion-list-header>
+            CONTACT
+        </ion-list-header> -->
+
+        <button ion-item (click)="editEmail()">
+            Email : {{user.email}}
+            <ion-icon name="arrow-forward" color="primary" item-end></ion-icon>
+        </button>
+        <div class="spacer" style="height: 10px;"></div>
+        <!-- <ion-item-divider></ion-item-divider> -->
+
+        <button ion-item (click)="editPhone()">
+            Phone Number : {{user.phone}}
+            <ion-icon name="arrow-forward" color="primary" item-end></ion-icon>
+        </button>
+
+        <button ion-item (click)="editEmergencyContact()">
+            Emergency Conctact : {{user.emergencyContact}}
+            <ion-icon name="arrow-forward" color="primary" item-end></ion-icon>
+        </button>
+    </ion-list>
+
+    <ion-list>
+        <button ion-item (click)="editMedicalHistory()">
+            Medical Information
+            <ion-icon name="arrow-forward" color="primary" item-end></ion-icon>
+        </button>
+    </ion-list>
+
+    <ion-list>
+        <button ion-button block color="danger" (click)="logout()">LOG OUT</button>
+    </ion-list>
+
+</ion-content>

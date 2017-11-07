@@ -1,0 +1,33 @@
+
+<ion-content class="bgImg" padding content-center no-bounce>
+  <ion-card>
+    <ion-card-content>
+      <ion-list no-lines>
+        <div class="center">
+        <ion-item class="item-full-transparent img-center">
+          <img [src]="logoSettings.imgURL"
+          [style.width.px]="logoSettings.width"
+          [style.height.px]="logoSettings.height">
+        </ion-item>
+        </div>
+        <div class="spacer" style="height: 20px;"></div>
+        <ion-item no-lines id="item-radius-top" class="item-transparent">
+          <ion-label fixed style="font-size:1.1em; color:#000000" >Username:</ion-label>
+          <ion-input type="text" value="" style="font-size:1.1em; color:#000000" [(ngModel)]="username"></ion-input>
+        </ion-item>
+        <ion-item no-lines id="item-radius-bottom" class="item-transparent">
+          <ion-label fixed style="font-size:1.1em; color:#000000">Password:</ion-label>
+          <ion-input type="password" style="font-size:1.1em; color:#000000"[(ngModel)]="password"></ion-input>
+        </ion-item>
+        <p text-center class="help-text" >Forgot your login detail?<a href="">Get Help Signing in.</a></p>
+        <div class="spacer" style="height: 5px;"></div>
+        <button ion-button round block outline color="primary" class="semi-transparent-button-login" id="button-radius" style="letter-spacing: 4px;" (click)="login()">LOGIN</button>
+      </ion-list>
+      <div class="spacer" style="height: 15px;"></div>
+      <ion-list >
+        <div class="spacer" style="height: 10px;"></div>
+        <button ion-button round block outline color="danger" class="semi-transparent-button-signup" id="button-radius" style="letter-spacing: 4px" (click)='signUp()'>CREATE ACCOUNT</button>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

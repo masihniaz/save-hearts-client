@@ -1,0 +1,17 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Email</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding no-bounce id="bgColor">
+  
+  <form [formGroup]="emailForm">
+    <ion-input type="text" formControlName="email" placeholder="Email" [(ngModel)]="user.email" required></ion-input>
+    <button ion-button block [disabled]="!emailForm.dirty || !emailForm.valid " (click)="saveData()">SAVE</button>
+  </form>
+
+</ion-content>

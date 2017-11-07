@@ -1,0 +1,17 @@
+page-emergency-waiting {
+    .scroll-content {
+		align-content: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+	}
+    .content-bg {
+        background-color: #EEEEEE;
+    }
+    p {
+        color: black;
+        text-align: center;
+        font-size: 1.5em;
+    }
+}

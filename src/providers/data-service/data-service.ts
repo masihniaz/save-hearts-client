@@ -8,8 +8,9 @@ import { Storage } from '@ionic/storage';
 
 @Injectable()
 export class DataService {
-  // serverURL: string = 'http://127.0.0.1:4000/';
-  serverURL: string = 'http://10.0.2.2:4000/';
+  serverURL: string = 'https://save-hearts.herokuapp.com/';
+  // for emulator to connect to localhost
+  // serverURL: string = 'http://10.0.2.2:4000/';
   id: string = '';
   jwt: string = '';
   constructor(private _http: Http,

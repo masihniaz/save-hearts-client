@@ -171,14 +171,37 @@ export class SettingPage {
   // }
 
   logout() {
-    
-    // remove user data from local storage
-    this.storage.remove('user');
-    this.storage.remove('jwt');
-    this.storage.remove('pushToken');
-    this.storage.remove('notifications');
-    // redirect to login and remove the tab bar.
-    this.appCtrl.getRootNav().setRoot(LoginPage);
+    let data = {
+      id: this.id,
+      jwt: this.jwt
+    };
+
+    this.dataService.deleteLocation(data)
+    .subscribe(
+      done => {
+        console.log('Location deleted');
+        this.dataService.deletePushId(data)
+        .subscribe(
+          done => {
+            console.log('FCM token deleted');
+              // remove user data from local storage
+              this.storage.remove('user');
+              this.storage.remove('jwt');
+              this.storage.remove('pushToken');
+              this.storage.remove('notifications');
+              // redirect to login and remove the tab bar.
+              this.appCtrl.getRootNav().setRoot(LoginPage);
+          },
+          err => {
+            console.log('Deleting FCM toekn failed: ', JSON.stringify(err));
+          }
+        )
+      },
+      err => {
+        console.log('Deleting location failed: ', JSON.stringify(err));
+      }
+    );
+
   };
 
 };

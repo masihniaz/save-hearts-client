@@ -41,10 +41,12 @@ export class MyApp {
       FCMPlugin.onNotification((data) => {
         if(data.wasTapped) {
           this.notifications.push(data);
+          console.log(JSON.stringify(data));
           this.storage.set('notifications', this.notifications);
 
         } else {
           this.notifications.push(data);
+          console.log(JSON.stringify(data));
           this.storage.set('notifications', this.notifications);
           // toast.present();
         };

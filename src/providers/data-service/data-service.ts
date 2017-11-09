@@ -146,6 +146,33 @@ export class DataService {
     return this._http.put(`${this.serverURL}users/settings/push`, body, options);
   };
 
+  deletePushId(dataToUpdate) {
+    let headers = new Headers();
+    headers.append('Authorization', 'JWT ' + dataToUpdate.jwt);
+    let options = new RequestOptions({headers: headers});
+    return this._http.delete(`${this.serverURL}users/settings/push/${dataToUpdate.id}`, options);
+  }
+
+  deleteLocation(dataToUpdate) {
+    let headers = new Headers();
+    headers.append('Authorization', 'JWT ' + dataToUpdate.jwt);
+    let options = new RequestOptions({headers: headers});
+    return this._http.delete(`${this.serverURL}users/settings/location/${dataToUpdate.id}`, options);
+  }
+  updateLocation(dataToUpdate) {
+    let body = {
+      data : {
+        location: {
+          coordinates: [dataToUpdate.location.coordinates[0], dataToUpdate.location.coordinates[1]]
+        }
+      }
+    };
+    let headers = new Headers();
+    headers.append('Authorization', 'JWT ' + dataToUpdate.jwt);
+    let options = new RequestOptions({headers: headers});
+    return this._http.put(`${this.serverURL}users/settings/location/${dataToUpdate.id}`, body, options);
+  };
+
   alertEmergency(data) {
     let body = {
       id: data.id,

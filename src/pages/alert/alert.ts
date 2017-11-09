@@ -20,7 +20,7 @@ export class AlertPage {
   jwt: string = '';
 
   location = {
-    coordinates: [101.738534870263,3.24826391543084],
+    coordinates: [62.2040287,34.352865],
     type: 'Point'
   };
 
@@ -42,18 +42,28 @@ export class AlertPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AlertPage');
-    
+    this.getLocation();
+  };
 
+  getLocation() {
     this.geolocation.getCurrentPosition().then( location => {
-      this.location.coordinates[0] = location.coords.longitude;
-      this.location.coordinates[1] = location.coords.latitude;
+      // this.location.coordinates[0] = location.coords.longitude;
+      // this.location.coordinates[1] = location.coords.latitude;
+      this.location.coordinates.push(location.coords.longitude);
+      this.location.coordinates.push(location.coords.latitude);
+      this.dataService.updateLocation({id: this.id, jwt: this.jwt, location: this.location}).
+      subscribe(
+        data => {
+          console.log('Location Updated');
+        },
+        err => {
+          console.log('Location update failed: ', JSON.stringify(err));
+        }
+      );
     }).catch(err => {
       console.log(JSON.stringify(err));
     });
   };
-  ionViewWillEnter() {
-    
-  }
 
   alertEmergency() {
     this.dataService.alertEmergency({id: this.id, jwt: this.jwt, location: this.location, user: this.user})

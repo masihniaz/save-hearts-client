@@ -6,6 +6,8 @@ import { User } from '../../models/user.model';
 
 import { Storage } from '@ionic/storage';
 
+import { FileTransfer, FileUploadOptions } from '@ionic-native/file-transfer';
+
 @Injectable()
 export class DataService {
   serverURL: string = 'https://save-hearts.herokuapp.com/';
@@ -14,6 +16,7 @@ export class DataService {
   id: string = '';
   jwt: string = '';
   constructor(private _http: Http,
+              private fileTransfer: FileTransfer,
               public storage: Storage) {
               };
   ionViewDidLoad() {
@@ -213,6 +216,15 @@ export class DataService {
     return this._http.get(`${this.serverURL}friends/list/${data.id}`, options);
   }
 
+  uploadPicture(data) {
+    let options: FileUploadOptions = {
+      fileKey: 'dp',
+      chunkedMode: false,
+      mimeType: 'multipart/form-data',
+    };
+    const fileTransfer = this.fileTransfer.create();
+    return fileTransfer.upload(data.imagePath, `${this.serverURL}users/settings/dp/${data.id}`, options);
+  };
   removeProfilePicture(data) {
     let headers = new Headers();
     headers.append('Authorization', 'JWT' + data.jwt);

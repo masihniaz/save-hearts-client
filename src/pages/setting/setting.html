@@ -14,8 +14,8 @@
                 </button>
             </ion-fab>
             <ion-thumbnail>
-                <img *ngIf="!user.dp" [src]="defaultAvatar" id="dp">
-                <img *ngIf="user.dp" [src]="user.dp" id="dp">
+                <img *ngIf="!imageURL" [src]="defaultAvatar" id="dp">
+                <img *ngIf="imageURL" [src]="imageURL" id="dp">
             </ion-thumbnail>
             
             

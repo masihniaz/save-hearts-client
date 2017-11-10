@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App, ActionSheetController, AlertController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, ActionSheetController, AlertController, ToastController, LoadingController } from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
 
@@ -15,6 +15,8 @@ import { DataService } from '../../providers/data-service/data-service';
 
 import { LoginPage } from '../login/login';
 
+import { Camera, CameraOptions } from '@ionic-native/camera';
+
 @IonicPage()
 @Component({
   selector: 'page-setting',
@@ -25,14 +27,18 @@ export class SettingPage {
   id: String = '';
   jwt: String = '';
   birthdate: string;
+  imageURI: string;
+  imageURL: string;
   defaultAvatar: string = 'assets/img/avatar.jpg';
   
   constructor(public navCtrl: NavController,
               public storage: Storage,
               public appCtrl: App,
               public actionSheetCtrl: ActionSheetController,
+              public loadingCtrl: LoadingController,
               public alertCtrl: AlertController,
               public toastCtrl: ToastController,
+              public camera: Camera,
               public dataService: DataService,
               public navParams: NavParams) {
   };
@@ -47,6 +53,9 @@ export class SettingPage {
       this.id = user._id;
       let ISOBirthdate = String(user.birthdate);
       this.birthdate = ISOBirthdate.split('T')[0];
+      if(user.dp) {
+        this.imageURL = user.dp;
+      }
     });
     this.storage.get('jwt').then( (jwt) => {
       this.jwt = jwt;
@@ -83,20 +92,19 @@ export class SettingPage {
   };
 
   presentActionSheet() {
-    console.log('Action Sheet clicked!');
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Select Image Source',
       buttons: [
         {
           text: 'Load from Library',
           handler: () => {
-            // this.takePicture()
+            this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
           }
         },
         {
           text: 'Use Camera',
           handler: () => {
-            // this.takePicture()
+            this.takePicture(this.camera.PictureSourceType.CAMERA);
           }
         },
         {
@@ -116,7 +124,43 @@ export class SettingPage {
       ]
     });
     actionSheet.present();
-  }
+  };
+
+  takePicture(sourceType) {
+    let loader = this.loadingCtrl.create({
+      content: 'Uploading...'
+    });
+
+    let options: CameraOptions = {
+      quality: 50,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      sourceType: sourceType,
+      saveToPhotoAlbum: false,
+      correctOrientation: true
+    };
+
+    this.camera.getPicture(options).then( imagePath => {
+      loader.present();
+      this.imageURI = imagePath;
+      this.dataService.uploadPicture({id: this.id, jwt: this.jwt, imagePath: imagePath}).then(
+        (data) => {
+          let user = JSON.parse(data.response);
+          console.log(JSON.stringify(user));
+          this.user = user;
+          this.imageURL = user.dp;
+          this.storage.set('user', user);
+          loader.dismiss();
+        },
+        (err) => {
+          loader.dismiss();
+          console.log(JSON.stringify(err));
+        }
+      );
+    }, err => {
+      console.log(JSON.stringify(err));
+    });
+
+  };
 
   removeProfilePicture() {
     let data = {

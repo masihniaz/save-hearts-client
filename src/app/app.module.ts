@@ -29,6 +29,9 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { Geolocation } from '@ionic-native/geolocation';
 
+import { Camera } from '@ionic-native/camera';
+import { FileTransfer } from '@ionic-native/file-transfer';
+
 
 @NgModule({
   declarations: [
@@ -75,7 +78,9 @@ import { Geolocation } from '@ionic-native/geolocation';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataService,
-    Geolocation
+    Geolocation,
+    Camera,
+    FileTransfer
   ]
 })
 export class AppModule {}

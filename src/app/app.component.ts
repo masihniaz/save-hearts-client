@@ -6,13 +6,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
 
 import { IntroPage } from '../pages/intro/intro'
-import { LoginPage } from '../pages/login/login';
+// import { LoginPage } from '../pages/login/login';
 declare var FCMPlugin;
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any = LoginPage;
+  rootPage: any = "LoginPage";
   notifications : Array<any> = [];
   constructor(public platform: Platform,
               statusBar: StatusBar,

@@ -6,10 +6,10 @@ import { IonicPage,
          ToastController } from 'ionic-angular';
 
 import { DataService } from '../../providers/data-service/data-service';
-import { SignupPage } from '../signup/signup'
+// import { SignupPage } from '../signup/signup'
 import { HomeTabsPage } from '../home-tabs/home-tabs';
 
-import { IntroPage } from '../intro/intro';
+// import { IntroPage } from '../intro/intro';
 
 import { Storage } from '@ionic/storage';
 
@@ -55,7 +55,7 @@ export class LoginPage {
   ionViewCanEnter() {
     this.storage.get('intro-done').then( done => {
       if(!done) {
-        this.navCtrl.setRoot(IntroPage);
+        this.navCtrl.setRoot("IntroPage");
         this.storage.set('intro-done', true);
         return false;
       } else {
@@ -108,6 +108,6 @@ export class LoginPage {
   };
 
   signUp(): void{
-    this.navCtrl.push(SignupPage);
+    this.navCtrl.push("SignupPage");
   };
 };

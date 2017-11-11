@@ -3,17 +3,17 @@ import { IonicPage, NavController, NavParams, App, ActionSheetController, AlertC
 
 import { Storage } from '@ionic/storage';
 
-import { NameEditPage } from '../name-edit/name-edit';
-import { BirthdateEditPage } from '../birthdate-edit/birthdate-edit';
-import { GenderEditPage } from '../gender-edit/gender-edit';
-import { EmailEditPage } from '../email-edit/email-edit';
-import { PhoneEditPage } from '../phone-edit/phone-edit';
-import { EmergencyContactEditPage } from '../emergency-contact-edit/emergency-contact-edit';
-import { MedicalHistoryEditPage } from '../medical-history-edit/medical-history-edit';
+// import { NameEditPage } from '../name-edit/name-edit';
+// import { BirthdateEditPage } from '../birthdate-edit/birthdate-edit';
+// import { GenderEditPage } from '../gender-edit/gender-edit';
+// import { EmailEditPage } from '../email-edit/email-edit';
+// import { PhoneEditPage } from '../phone-edit/phone-edit';
+// import { EmergencyContactEditPage } from '../emergency-contact-edit/emergency-contact-edit';
+// import { MedicalHistoryEditPage } from '../medical-history-edit/medical-history-edit';
 
 import { DataService } from '../../providers/data-service/data-service';
 
-import { LoginPage } from '../login/login';
+// import { LoginPage } from '../login/login';
 
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
@@ -64,31 +64,31 @@ export class SettingPage {
   }
 
   editName() {
-    this.navCtrl.push(NameEditPage);
+    this.navCtrl.push("NameEditPage");
   };
 
   editBirthdate() {
-    this.navCtrl.push(BirthdateEditPage);
+    this.navCtrl.push("BirthdateEditPage");
   };
 
   editGender() {
-    this.navCtrl.push(GenderEditPage);
+    this.navCtrl.push("GenderEditPage");
   };
 
   editEmail() {
-    this.navCtrl.push(EmailEditPage);
+    this.navCtrl.push("EmailEditPage");
   };
 
   editPhone() {
-    this.navCtrl.push(PhoneEditPage);
+    this.navCtrl.push("PhoneEditPage");
   };
 
   editEmergencyContact() {
-    this.navCtrl.push(EmergencyContactEditPage);
+    this.navCtrl.push("EmergencyContactEditPage");
   };
 
   editMedicalHistory() {
-    this.navCtrl.push(MedicalHistoryEditPage);
+    this.navCtrl.push("MedicalHistoryEditPage");
   };
 
   presentActionSheet() {
@@ -234,7 +234,7 @@ export class SettingPage {
               this.storage.remove('pushToken');
               this.storage.remove('notifications');
               // redirect to login and remove the tab bar.
-              this.appCtrl.getRootNav().setRoot(LoginPage);
+              this.appCtrl.getRootNav().setRoot("LoginPage");
           },
           err => {
             console.log('Deleting FCM toekn failed: ', JSON.stringify(err));

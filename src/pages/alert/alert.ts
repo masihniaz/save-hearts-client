@@ -7,7 +7,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 
 import { Storage } from '@ionic/storage';
 
-import { EmergencyWaitingPage } from '../../pages/emergency-waiting/emergency-waiting';
+// import { EmergencyWaitingPage } from '../../pages/emergency-waiting/emergency-waiting';
 
 @IonicPage()
 @Component({
@@ -37,6 +37,7 @@ export class AlertPage {
                 this.storage.get('jwt').then( jwt => {
                   this.jwt = jwt;
                 });
+                
 
   }
 
@@ -51,6 +52,7 @@ export class AlertPage {
       // this.location.coordinates[1] = location.coords.latitude;
       this.location.coordinates.push(location.coords.longitude);
       this.location.coordinates.push(location.coords.latitude);
+      console.log('Location: ', JSON.stringify(location));
       this.dataService.updateLocation({id: this.id, jwt: this.jwt, location: this.location}).
       subscribe(
         data => {
@@ -71,7 +73,7 @@ export class AlertPage {
     .subscribe(
       data => {
         // console.log(JSON.stringify(data));
-        this.navCtrl.push(EmergencyWaitingPage, {users: data});
+        this.navCtrl.push("EmergencyWaitingPage", {users: data});
       },
       err => {
         console.log(JSON.stringify(err));

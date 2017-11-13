@@ -32,6 +32,8 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { Camera } from '@ionic-native/camera';
 import { FileTransfer } from '@ionic-native/file-transfer';
 
+import { GoogleMaps } from '@ionic-native/google-maps';
+
 
 @NgModule({
   declarations: [
@@ -80,7 +82,8 @@ import { FileTransfer } from '@ionic-native/file-transfer';
     DataService,
     Geolocation,
     Camera,
-    FileTransfer
+    FileTransfer,
+    GoogleMaps
   ]
 })
 export class AppModule {}

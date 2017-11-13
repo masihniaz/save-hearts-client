@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 
 import { Storage } from '@ionic/storage';
 
+import {GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPosition, MarkerOptions, Marker} from '@ionic-native/google-maps';
+
 
 @IonicPage()
 @Component({
@@ -12,10 +14,12 @@ import { Storage } from '@ionic/storage';
 export class HelpPage {
   notifications: any[] = [];
   notificationsLength: number;
+  map: GoogleMap;
 
   constructor(public navCtrl: NavController,
               public storage: Storage,
               public modalCtrl: ModalController,
+              public googleMaps: GoogleMaps,
               public navParams: NavParams) {
   };
 
@@ -38,6 +42,38 @@ export class HelpPage {
   viewDisplayPicture(notification) {
     let modal = this.modalCtrl.create('ViewDisplayPictureModalPage', {dp: notification.dp});
     modal.present();
+  };
+
+  loadMap(lng, lat) {
+    let mapOptions: GoogleMapOptions = {
+      camera: {
+        target: {
+          lat: lat,
+          lng: lng
+        },
+        zoom: 18,
+        tilt: 30
+      }
+    };
+    let element: HTMLElement = document.getElementById('map');
+    this.map = this.googleMaps.create(element, mapOptions);
+    this.map.one(GoogleMapsEvent.MAP_READY)
+    .then(() => {
+      this.map.addMarker({
+        title: 'Victim',
+        icon: 'blue',
+        animation: 'DROP',
+        position: {
+          lat: lat,
+          lng: lng
+        }
+      }).then(marker => {
+        marker.on(GoogleMapsEvent.MARKER_CLICK)
+        .subscibe(() => {
+          alert('clicked');
+        });
+      });
+    });
   };
 
 };

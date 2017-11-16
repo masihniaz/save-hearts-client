@@ -13,7 +13,9 @@
           INFORMATION
         </ion-list-header>
         
-        <div id="map" onload="loadMap(notification.lng, notification.lat)"></div>
+        <div id="map">
+          {{loadMap(notification.lng, notification.lat)}}
+        </div>
         <ion-item class="item-transparent">
           Name: {{notification.name + ' ' + notification.lastname}}
         </ion-item>

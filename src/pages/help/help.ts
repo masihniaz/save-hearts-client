@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 
 import { Storage } from '@ionic/storage';
 
-import {GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPosition, MarkerOptions, Marker} from '@ionic-native/google-maps';
+import {GoogleMaps, GoogleMap, GoogleMapsEvent, LatLng, GoogleMapOptions, CameraPosition, MarkerOptions, Marker} from '@ionic-native/google-maps';
 
 
 @IonicPage()
@@ -45,20 +45,25 @@ export class HelpPage {
   };
 
   loadMap(lng, lat) {
+    // let location = new LatLng(lat, lng);
     let mapOptions: GoogleMapOptions = {
       camera: {
         target: {
           lat: lat,
           lng: lng
         },
-        zoom: 18,
-        tilt: 30
+        zoom: 18
       }
     };
     let element: HTMLElement = document.getElementById('map');
     this.map = this.googleMaps.create(element, mapOptions);
+    // this.map = new GoogleMap('map', mapOptions);
     this.map.one(GoogleMapsEvent.MAP_READY)
+    // .subscribe(() => {
+    //   console.log('map is ready')
+    // });
     .then(() => {
+      console.log('map is ready');
       this.map.addMarker({
         title: 'Victim',
         icon: 'blue',

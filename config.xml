@@ -3,7 +3,7 @@
     <name>Save Hearts</name>
     <description>An app that aims to help heart attack victims to receive faster help.</description>
     <author email="masih.dvlp.acc@gmail.com" href="http://masihniaz.com">Masih Niaz</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.1.105:8100" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
     <allow-intent href="http://*/*" />

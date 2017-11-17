@@ -13,7 +13,7 @@
                     <ion-icon name="camera"></ion-icon>
                 </button>
             </ion-fab>
-            <ion-thumbnail>
+            <ion-thumbnail (click)="viewDisplayPicture()">
                 <img *ngIf="!imageURL" [src]="defaultAvatar" id="dp">
                 <img *ngIf="imageURL" [src]="imageURL" id="dp">
             </ion-thumbnail>
@@ -84,7 +84,7 @@
     </ion-list>
 
     <ion-list>
-        <button ion-button block color="danger" (click)="logout()">LOG OUT</button>
+        <button ion-button block id="btn" color="danger" (click)="logout()">LOG OUT</button>
     </ion-list>
 
 </ion-content>

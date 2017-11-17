@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Notifications</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding id="bgColor">
+    <ion-list-header>
+      INFORMATION
+    </ion-list-header>
+
+  <ion-thumbnail (click)="viewDisplayPicture(notification)">
+      <img [src]="notification.dp" id="dp">
+  </ion-thumbnail>
+  <ion-list no-lines>
+
+    <button ion-button block id="btn" color="primary" (click)="viewLocation(notification.lat, notification.lng)">
+      LOCATION
+    </button>
+
+    <ion-item class="item-transparent">
+      Name: {{notification.name + ' ' + notification.lastname}}
+    </ion-item>
+
+    <ion-item class="item-transparent">
+      Gender: {{notification.gender}}
+    </ion-item>
+
+    <ion-item class="item-transparent">
+      Birthdate: {{notification.birthdate}}
+    </ion-item>
+
+    <ion-item class="item-transparent">
+      Phone: {{notification.phone}}
+    </ion-item>
+
+    <ion-item *ngIf="notification.bloodType" class="item-transparent">
+      Blood Type: {{notification.bloodType}}
+    </ion-item>
+
+    <p *ngIf="notification.medicalNotes" class="paragraph">
+      {{notification.medicalNotes}}
+    </p>
+  </ion-list>
+</ion-content>

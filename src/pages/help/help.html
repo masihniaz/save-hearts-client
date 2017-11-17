@@ -1,9 +1,35 @@
 
 <ion-content padding no-bounce id="bg">
+  <ion-list>
+    <ion-list-header>
+      Emergency Notifications
+    </ion-list-header>
+
+    <ion-item-sliding *ngFor="let notification of notifications">
+      
+      <ion-item tappable (click)="viewNotification(notification)">
+        <ion-avatar item-start>
+          <img *ngIf="!notification.dp" [src]="defaultAvatar">
+          <img *ngIf="notification.dp" [src]="notification.dp">
+        </ion-avatar>
+        {{notification.name + ' ' + notification.lastname}}
+        <button ion-button clear icon-only item-end>
+          <ion-icon name="arrow-forward">
+          </ion-icon>
+        </button>
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button icon-only color="danger" (click)="removeNotification(notification)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
   <!-- <div *ngIf="notificationsLength">
     {{notificationsLength}}
   </div> -->
-  <ion-card *ngFor="let notification of notifications">
+  <!-- <ion-card *ngFor="let notification of notifications">
     <ion-thumbnail (click)="viewDisplayPicture(notification)">
       <img [src]="notification.dp" id="dp">
     </ion-thumbnail>
@@ -42,5 +68,5 @@
 
       </ion-list>
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
 </ion-content>

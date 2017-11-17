@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App, ActionSheetController, AlertController, ToastController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, ActionSheetController, AlertController, ToastController, LoadingController, ModalController } from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
 
@@ -38,6 +38,7 @@ export class SettingPage {
               public loadingCtrl: LoadingController,
               public alertCtrl: AlertController,
               public toastCtrl: ToastController,
+              public modalCtrl: ModalController,
               public camera: Camera,
               public dataService: DataService,
               public navParams: NavParams) {
@@ -162,6 +163,11 @@ export class SettingPage {
 
   };
 
+  viewDisplayPicture(notification) {
+    let modal = this.modalCtrl.create('ViewDisplayPictureModalPage', {dp: this.imageURL});
+    modal.present();
+  };
+
   removeProfilePicture() {
     let data = {
       id: this.id,
@@ -215,6 +221,11 @@ export class SettingPage {
   // }
 
   logout() {
+    let loading = this.loadingCtrl.create({
+      spinner: 'bubble',
+      content: `<div>Signing Out...</div>`
+    });
+    loading.present();
     let data = {
       id: this.id,
       jwt: this.jwt
@@ -235,6 +246,7 @@ export class SettingPage {
               this.storage.remove('notifications');
               // redirect to login and remove the tab bar.
               this.appCtrl.getRootNav().setRoot("LoginPage");
+              loading.dismiss();
           },
           err => {
             console.log('Deleting FCM toekn failed: ', JSON.stringify(err));

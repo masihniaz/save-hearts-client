@@ -1,13 +1,19 @@
-page-help {
-
-    #bg {
-        background: #EEEEEE;
+page-view-notification {
+    #bgColor {
+        background-color: #EEEEEE;
+    }
+    ion-list-header {
+        text-align: center;
+        border-radius: 8px;
+        margin-top: 0px;
+        margin-bottom: 0px;
     }
     #dp {
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 5px;
-        margin-top: 5px;
+        margin-bottom: 10px;
+        margin-top: 0px;
+        // margin-top: 5px;
         width: 190px;
 		height: 190px;
 		border:2px solid #fff;
@@ -18,14 +24,8 @@ page-help {
 		-webkit-border-radius:190px;
 		border-radius:190px;
     }
-    ion-list-header {
-        text-align: center;
-        border-radius: 8px;
-        margin-top: 5px;
-    }
     .item-transparent {
-        
-        background: rgba(238, 238, 238, 0.50);
+        // background: rgba(238, 238, 238, 0.50);
         // color: #ffffff;
         color: #000000;
         border-radius: 8px;
@@ -33,9 +33,14 @@ page-help {
     }
     .paragraph {
         box-sizing: border-box;
-        background: rgba(238, 238, 238, 0.50);
+        // background: rgba(238, 238, 238, 0.50);
+        background: #ffffff;
         padding: 16px;
         font-size: 1.2em;
         border-radius: 8px;
+    }
+    #btn{
+        border-radius: 8px;
+        margin-bottom: 8px;
     }
 }

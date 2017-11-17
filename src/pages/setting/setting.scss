@@ -1,10 +1,15 @@
 page-setting {
+    ion-list-header {
+        text-align: center;
+        border-radius: 8px;
+        margin-top: 5px;
+    }
     #bgColor {
         // background-color: #CFD8DC;
         background-color: #EEEEEE;
     }
     .item {
-        border-radius: 5px;
+        border-radius: 8px;
     }
     #dp {
         margin-left: auto;
@@ -20,7 +25,9 @@ page-setting {
 		-webkit-border-radius:190px;
 		border-radius:190px;
     }
-    ion-list-header{
-        text-align: center;
+    #btn{
+        border-radius: 8px;
+        margin-bottom: 8px;
     }
+
 }

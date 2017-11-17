@@ -10,12 +10,16 @@ export class ViewLocationPage {
   map: GoogleMap;
   lat: any;
   lng: any;
+  name: string;
+  lastname: string;
   constructor(public navCtrl: NavController,
-              public googleMaps: GoogleMaps,
+              // public googleMaps: GoogleMaps,
               public navParams: NavParams) {
     this.lat = this.navParams.get('lat');
     this.lng = this.navParams.get('lng');
-    // this.loadMap(this.lat, this.lng);
+    this.name = this.navParams.get('name');
+    this.lastname = this.navParams.get('lastname');
+    this.loadMap(this.lat, this.lng);
   }
 
   ionViewDidLoad() {
@@ -23,42 +27,30 @@ export class ViewLocationPage {
   }
 
   loadMap(lat, lng) {
-    console.log('loadmap called');
-    // let location = new LatLng(lat, lng);
     let mapOptions: GoogleMapOptions = {
       camera: {
         target: {
           lat: lat,
           lng: lng
         },
-        zoom: 18
+        zoom: 15
       }
     };
-    let element: HTMLElement = document.getElementById('map');
-    this.map = this.googleMaps.create(element, mapOptions);
-    // this.map = new GoogleMap('map', mapOptions);
+    this.map = GoogleMaps.create('map', mapOptions);
     this.map.one(GoogleMapsEvent.MAP_READY)
-    // .subscribe(() => {
-    //   console.log('map is ready')
-    // });
     .then(() => {
       console.log('map is ready');
       this.map.addMarker({
-        title: 'Victim',
-        icon: 'blue',
+        title: `${this.name } ${this.lastname}`,
+        icon: 'red',
         animation: 'DROP',
         position: {
           lat: lat,
           lng: lng
         }
-      }).then(marker => {
-        console.log('marker clicked');
-        marker.on(GoogleMapsEvent.MARKER_CLICK)
-        .subscibe(() => {
-          alert('clicked');
-        });
+      })
+      .then( marker => {
       });
     });
   };
-
-}
+};

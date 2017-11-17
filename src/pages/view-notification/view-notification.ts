@@ -23,8 +23,8 @@ export class ViewNotificationPage {
     modal.present();
   };
 
-  viewLocation(lat, lng) {
-    this.navCtrl.push('ViewLocationPage', {lat: lat, lng: lng })
+  viewLocation(lat, lng, name, lastname) {
+    this.navCtrl.push('ViewLocationPage', {lat: lat, lng: lng, name: name, lastname: lastname });
   };
 
 }

@@ -4,9 +4,7 @@
     <ion-list-header>
       Emergency Notifications
     </ion-list-header>
-
-    <ion-item-sliding *ngFor="let notification of notifications">
-      
+    <ion-item-sliding *ngFor="let notification of notifications; let i = index;">
       <ion-item tappable (click)="viewNotification(notification)">
         <ion-avatar item-start>
           <img *ngIf="!notification.dp" [src]="defaultAvatar">
@@ -19,54 +17,10 @@
         </button>
       </ion-item>
       <ion-item-options side="left">
-        <button ion-button icon-only color="danger" (click)="removeNotification(notification)">
+        <button ion-button icon-only color="danger" (click)="removeNotification(i)">
           <ion-icon name="trash"></ion-icon>
         </button>
       </ion-item-options>
     </ion-item-sliding>
-
   </ion-list>
-  <!-- <div *ngIf="notificationsLength">
-    {{notificationsLength}}
-  </div> -->
-  <!-- <ion-card *ngFor="let notification of notifications">
-    <ion-thumbnail (click)="viewDisplayPicture(notification)">
-      <img [src]="notification.dp" id="dp">
-    </ion-thumbnail>
-    <ion-card-content>
-      <ion-list>
-        <ion-list-header>
-          INFORMATION
-        </ion-list-header>
-        
-        <div id="map">
-          {{loadMap(notification.lng, notification.lat)}}
-        </div>
-        <ion-item class="item-transparent">
-          Name: {{notification.name + ' ' + notification.lastname}}
-        </ion-item>
-
-        <ion-item class="item-transparent">
-          Gender: {{notification.gender}}
-        </ion-item>
-
-        <ion-item class="item-transparent">
-          Birthdate: {{notification.birthdate}}
-        </ion-item>
-
-        <ion-item class="item-transparent">
-          Phone: {{notification.phone}}
-        </ion-item>
-
-        <ion-item *ngIf="notification.bloodType" class="item-transparent">
-          Blood Type: {{notification.bloodType}}
-        </ion-item>
-
-        <p *ngIf="notification.medicalNotes" class="paragraph">
-            {{notification.medicalNotes}}
-        </p>
-
-      </ion-list>
-    </ion-card-content>
-  </ion-card> -->
 </ion-content>

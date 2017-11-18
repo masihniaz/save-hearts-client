@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Platform, ToastController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
+import { Keyboard } from '@ionic-native/keyboard';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Storage } from '@ionic/storage';
@@ -18,21 +19,16 @@ export class MyApp {
               statusBar: StatusBar,
               public storage: Storage,
               public toastCtrl: ToastController,
+              public keyboard: Keyboard,
               splashScreen: SplashScreen) {
     this.platform.ready().then(() => {
-      // let toast = this.toastCtrl.create({
-      //   message: 'HELP IS NEEDED!',
-      //   duration: 5000,
-      //   position: 'middle',
-      // });
-      // if(typeof FCMPlugin != 'undefined') {
-        
-      // };
-      this.initializeApp();
+
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+      this.keyboard.disableScroll(true);
+      this.initializeApp();
     });
   };
 

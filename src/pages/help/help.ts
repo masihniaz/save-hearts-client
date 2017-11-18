@@ -37,7 +37,11 @@ export class HelpPage {
     this.navCtrl.push("ViewNotificationPage", {notification: notification});
   };
 
-  removeNotification(notification) {
-
+  removeNotification(index) {
+    for(let i = index; i < this.notifications.length; i++) {
+      this.notifications[i] = this.notifications[i+1];
+    }
+    this.notifications.pop();
+    this.storage.set('notifications', this.notifications);
   };
 };

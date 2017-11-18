@@ -34,6 +34,8 @@ import { FileTransfer } from '@ionic-native/file-transfer';
 
 import { GoogleMaps } from '@ionic-native/google-maps';
 
+import { Keyboard } from '@ionic-native/keyboard';
+
 
 @NgModule({
   declarations: [
@@ -53,7 +55,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, { scrollAssist: false, autoFocusAssist: false }),
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
@@ -83,7 +85,8 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     Geolocation,
     Camera,
     FileTransfer,
-    GoogleMaps
+    GoogleMaps,
+    Keyboard
   ]
 })
 export class AppModule {}

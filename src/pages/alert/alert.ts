@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import { DataService } from '../../providers/data-service/data-service';
 
@@ -28,6 +28,7 @@ export class AlertPage {
               public dataService: DataService,
               public geolocation: Geolocation,
               public storage: Storage,
+              public loadingCtrl: LoadingController,
               public navParams: NavParams) {
                 
                 this.storage.get('user').then( user => {
@@ -68,12 +69,18 @@ export class AlertPage {
   };
 
   alertEmergency() {
+    let loading = this.loadingCtrl.create({
+      spinner: 'bubble',
+      content: `<div>Processing Your Request</div>`
+    });
+    loading.present();
     this.dataService.alertEmergency({id: this.id, jwt: this.jwt, location: this.location, user: this.user})
     .map( res => res.json())
     .subscribe(
       data => {
         // console.log(JSON.stringify(data));
         this.navCtrl.push("EmergencyWaitingPage", {users: data});
+        loading.dismiss();
       },
       err => {
         console.log(JSON.stringify(err));

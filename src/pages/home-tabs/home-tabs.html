@@ -1,4 +1,4 @@
-<ion-tabs color="dark">
+<ion-tabs color="dark" *ngIf="ngIfBoolean">
     <ion-tab [root]="alertRoot" tabTitle="Alert" tabIcon="alert"></ion-tab>
     <ion-tab [root]="helpRoot" tabTitle="Help" tabIcon="medkit"></ion-tab>
     <ion-tab [root]="infoRoot" tabTitle="Info" tabIcon="information-circle"></ion-tab>

@@ -5,6 +5,8 @@ import { Storage } from '@ionic/storage';
 
 import { DataService } from '../../providers/data-service/data-service';
 
+// import { Keyboard } from '@ionic-native/keyboard';
+
 declare var FCMPlugin;
 
 @IonicPage()
@@ -18,7 +20,7 @@ export class HomeTabsPage {
   id: string = "";
   pushId: string = "";
   notifications: any[] = [];
-
+  ngIfBoolean = true;
   alertRoot = 'AlertPage'
   helpRoot = 'HelpPage'
   settingRoot = 'SettingPage'
@@ -31,6 +33,7 @@ export class HomeTabsPage {
               public dataService: DataService,
               public toastCtrl: ToastController,
               public platform: Platform,
+              // public keyboard: Keyboard,
               public navParams: NavParams) {
     this.platform.ready().then(() => {
       // if(typeof FCMPlugin != 'undefined') {
@@ -41,6 +44,8 @@ export class HomeTabsPage {
   };
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomeTabsPage');
+    // this.keyboard.onKeyboardShow().subscribe(()=>{this.ngIfBoolean = false;});
+    // this.keyboard.onKeyboardHide().subscribe(()=>{this.ngIfBoolean = true;});
   };
 
   initializeApp() {

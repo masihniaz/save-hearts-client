@@ -16,7 +16,7 @@
 
     <ion-input type="text" formControlName="name" placeholder="Name" [(ngModel)]="user.name" text-capitalize></ion-input>
     <ion-input type="text" formControlName="lastname" placeholder="Last Name" [(ngModel)]="user.lastname" text-capitalize></ion-input>
-    <button ion-button block [disabled]="!nameForm.valid || (!nameForm.get('name').dirty || !nameForm.get('name').touched || !nameForm.get('lastname').dirty) || !nameForm.get('lastname').touched" (click)="saveData()">SAVE</button>
+    <button ion-button block [disabled]="!nameForm.valid || (!nameForm.get('name').dirty || !nameForm.get('name').touched) || (!nameForm.get('lastname').dirty || !nameForm.get('lastname').touched)" (click)="saveData()">SAVE</button>
   
   </form>
 

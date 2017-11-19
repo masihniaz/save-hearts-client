@@ -11,6 +11,11 @@
           <img *ngIf="notification.dp" [src]="notification.dp">
         </ion-avatar>
         {{notification.name + ' ' + notification.lastname}}
+        <ion-icon small name="pin" item-end>
+          </ion-icon>
+        <div item-end>
+          {{notification.dist + 'M'}}
+        </div>
         <button ion-button clear icon-only item-end>
           <ion-icon name="arrow-forward">
           </ion-icon>

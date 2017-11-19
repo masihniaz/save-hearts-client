@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 
 import { DataService } from '../../providers/data-service/data-service';
 
-import { Geolocation } from '@ionic-native/geolocation';
+import { Geolocation, GeolocationOptions } from '@ionic-native/geolocation';
 
 import { Storage } from '@ionic/storage';
 
@@ -27,6 +27,7 @@ export class AlertPage {
   constructor(public navCtrl: NavController,
               public dataService: DataService,
               public geolocation: Geolocation,
+              // public geoLocOpts: GeolocationOptions,
               public storage: Storage,
               public loadingCtrl: LoadingController,
               public navParams: NavParams) {
@@ -48,7 +49,11 @@ export class AlertPage {
   };
 
   getLocation() {
-    this.geolocation.getCurrentPosition().then( location => {
+    let opts: GeolocationOptions = {
+      enableHighAccuracy: true,
+      maximumAge: 0
+    }
+    this.geolocation.getCurrentPosition(opts).then( location => {
       // this.location.coordinates[0] = location.coords.longitude;
       // this.location.coordinates[1] = location.coords.latitude;
       this.location.coordinates.push(location.coords.longitude);

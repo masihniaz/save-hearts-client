@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ToastController, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController, ModalController, LoadingController } from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
 import { DataService } from '../../providers/data-service/data-service';
@@ -20,6 +20,7 @@ export class FriendsPage {
               public modalCtrl: ModalController,
               public toastCtrl: ToastController,
               public alertCtrl: AlertController,
+              public loadingCtrl: LoadingController,
               public navParams: NavParams) {
   }
 
@@ -40,6 +41,11 @@ export class FriendsPage {
 
 
   getFriends() {
+    let loading = this.loadingCtrl.create({
+      spinner: 'bubble',
+      content: '<div>Loading...</div>'
+    });
+    loading.present();
     let data = {
       id: this.id,
       jwt: this.jwt
@@ -50,8 +56,10 @@ export class FriendsPage {
     .subscribe(
       data => {
         this.friends = data;
+        loading.dismiss();
       },
       err => {
+        loading.dismiss();
         console.log(err);
       }
     );

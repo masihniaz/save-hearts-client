@@ -8,13 +8,13 @@ import { Storage } from '@ionic/storage';
 
 import { IntroPage } from '../pages/intro/intro'
 // import { LoginPage } from '../pages/login/login';
-declare var FCMPlugin;
+// declare var FCMPlugin;
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage: any = "LoginPage";
-  notifications : Array<any> = [];
+  // notifications : Array<any> = [];
   constructor(public platform: Platform,
               statusBar: StatusBar,
               public storage: Storage,
@@ -28,27 +28,27 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
       this.keyboard.disableScroll(true);
-      this.initializeApp();
+      // this.initializeApp();
     });
   };
 
-  initializeApp() {
-    if(this.platform.is('android') || this.platform.is('ios')) {
-      FCMPlugin.onNotification((data) => {
-        if(data.wasTapped) {
-          this.notifications.push(data);
-          console.log(JSON.stringify(data));
-          this.storage.set('notifications', this.notifications);
+  // initializeApp() {
+  //   if(this.platform.is('android') || this.platform.is('ios')) {
+  //     FCMPlugin.onNotification((data) => {
+  //       if(data.wasTapped) {
+  //         this.notifications.push(data);
+  //         console.log(JSON.stringify(data));
+  //         this.storage.set('notifications', this.notifications);
 
-        } else {
-          this.notifications.push(data);
-          console.log(JSON.stringify(data));
-          this.storage.set('notifications', this.notifications);
-          // toast.present();
-        };
-      }); 
-    };
-  };
+  //       } else {
+  //         this.notifications.push(data);
+  //         console.log(JSON.stringify(data));
+  //         this.storage.set('notifications', this.notifications);
+  //         // toast.present();
+  //       };
+  //     }); 
+  //   };
+  // };
 
   ionViewWillEnter() {
 

@@ -7,11 +7,17 @@
 </ion-header>
 
 
-<ion-content padding no-bounce id="bgColor">
+<ion-content no-bounce id="bgColor">
   <!-- <ion-list-header>
     LOCATION
   </ion-list-header> -->
-  <div id="map">
+  <ion-card>
+    <ion-card-content>
+        <div #directionsPanel></div>
+    </ion-card-content>
+  </ion-card>
+
+  <div #map id="map">
     <!-- {{loadMap(lat,lng)}} -->
   </div>
 

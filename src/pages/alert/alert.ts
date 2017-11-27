@@ -20,9 +20,13 @@ export class AlertPage {
   jwt: string = '';
 
   location = {
-    coordinates: [62.2040287,34.352865],
+    coordinates: [],
     type: 'Point'
   };
+  // location = {
+  //   coordinates: [62.2040287,34.352865],
+  //   type: 'Point'
+  // };
 
   constructor(public navCtrl: NavController,
               public dataService: DataService,

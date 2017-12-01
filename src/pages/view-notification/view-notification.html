@@ -13,7 +13,8 @@
     </ion-list-header>
 
   <ion-thumbnail (click)="viewDisplayPicture(notification)">
-      <img [src]="notification.dp" id="dp">
+      <img *ngIf="notification.dp" [src]="notification.dp" id="dp">
+      <img *ngIf="!notification.dp" [src]="defaultAvatar" id="dp">
   </ion-thumbnail>
   <ion-list no-lines>
 
@@ -32,7 +33,7 @@
     </ion-item>
 
     <ion-item class="item-transparent">
-      Birthdate: {{notification.birthdate}}
+      Birthdate: {{formatedBirthdate}}
     </ion-item>
 
     <ion-item class="item-transparent">

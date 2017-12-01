@@ -10,7 +10,7 @@
       </strong>
     </div>
     <ion-item-sliding *ngFor="let notification of notifications; let i = index;">
-      <ion-item tappable (click)="viewNotification(notification)">
+      <ion-item tappable (click)="viewNotification(notification, notification.birthdate)">
         <ion-avatar item-start>
           <img *ngIf="!notification.dp" [src]="defaultAvatar">
           <img *ngIf="notification.dp" [src]="notification.dp">
@@ -19,7 +19,7 @@
         <ion-icon small name="pin" item-end>
           </ion-icon>
         <div item-end>
-          {{notification.dist + 'M'}}
+          {{(notification.dist | number:'.0-0') + 'M'}}
         </div>
         <button ion-button clear icon-only item-end>
           <ion-icon name="arrow-forward">

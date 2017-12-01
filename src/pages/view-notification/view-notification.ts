@@ -8,10 +8,15 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 })
 export class ViewNotificationPage {
   notification = {}
+  birthdate = '';
+  formatedBirthdate = '';
+  defaultAvatar: string = 'assets/img/avatar.jpg'
   constructor(public navCtrl: NavController,
               public modalCtrl: ModalController,
               public navParams: NavParams) {
     this.notification = this.navParams.get('notification');
+    this.birthdate = this.navParams.get('birthdate');
+    this.formatedBirthdate = this.birthdate.split('T')[0];
   }
 
   ionViewDidLoad() {

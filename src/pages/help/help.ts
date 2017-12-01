@@ -56,8 +56,8 @@ export class HelpPage {
     };
   };
 
-  viewNotification(notification) {
-    this.navCtrl.push("ViewNotificationPage", {notification: notification});
+  viewNotification(notification, birthdate) {
+    this.navCtrl.push("ViewNotificationPage", {notification: notification, birthdate: birthdate});
   };
 
   removeNotification(index) {

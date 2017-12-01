@@ -185,10 +185,12 @@ export class SignupPage {
                           'position': 'middle'});
                         loading.dismiss();
                         toast.present();
+                        let jwt = data.token.split(' ')[1];
                         this.user_data = data.user;
                         this.auth_token = data.token;
                         this.storage.set('user', this.user_data);
-                        this.navCtrl.push(HomeTabsPage, {id: data.user._id, jwt: data.token});
+                        this.storage.set('jwt', jwt);
+                        this.navCtrl.setRoot(HomeTabsPage);
                       });
   };
 };

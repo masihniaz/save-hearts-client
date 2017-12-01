@@ -79,7 +79,7 @@ export class AlertPage {
 
   alertEmergency() {
     let loading = this.loadingCtrl.create({
-      spinner: 'bubble',
+      spinner: 'bubbles',
       content: `<div>Processing Your Request</div>`
     });
     loading.present();
@@ -92,6 +92,7 @@ export class AlertPage {
         loading.dismiss();
       },
       err => {
+        loading.dismiss();
         console.log(JSON.stringify(err));
       }
     );

@@ -42,7 +42,7 @@ export class FriendsPage {
 
   getFriends() {
     let loading = this.loadingCtrl.create({
-      spinner: 'bubble',
+      spinner: 'bubbles',
       content: '<div>Loading...</div>'
     });
     loading.present();

@@ -4,6 +4,11 @@
     <ion-list-header>
       Emergency Notifications
     </ion-list-header>
+    <div *ngIf="!notifications.length" id="msgCenter">
+      <strong>
+          You have no notifications!
+      </strong>
+    </div>
     <ion-item-sliding *ngFor="let notification of notifications; let i = index;">
       <ion-item tappable (click)="viewNotification(notification)">
         <ion-avatar item-start>

@@ -222,7 +222,7 @@ export class SettingPage {
 
   logout() {
     let loading = this.loadingCtrl.create({
-      spinner: 'bubble',
+      spinner: 'bubbles',
       content: `<div>Signing Out...</div>`
     });
     loading.present();
@@ -249,11 +249,13 @@ export class SettingPage {
               loading.dismiss();
           },
           err => {
+            loading.dismiss();
             console.log('Deleting FCM toekn failed: ', JSON.stringify(err));
           }
         )
       },
       err => {
+        loading.dismiss();
         console.log('Deleting location failed: ', JSON.stringify(err));
       }
     );
